@@ -1,0 +1,13 @@
+@media (min-width: 768px){
+	.navbar-form {
+	    padding: 0px 20px;
+	}
+	.navbar-form .form-control {
+	    display: inline-block;
+	    width: 500px;
+	    vertical-align: middle;
+	}
+	#input-title {
+	    background-color: #eee !important;
+	}
+}
