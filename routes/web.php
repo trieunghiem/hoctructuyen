@@ -12,3 +12,10 @@
 */
 
 Route::get('/', 'Web\HomeController@home')->name('home');
+
+
+
+
+
+
+Route::get('admin/Login', 'Admin\AdminController@getLogin')->name('getLogin');
