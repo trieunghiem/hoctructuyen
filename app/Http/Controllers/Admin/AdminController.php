@@ -4,11 +4,30 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\SessionGuard;
+use Illuminate\Contracts\Auth\Guard;
 
 class AdminController extends Controller
 {
 	public function getLogin()
 	{
 		return view('admin.login');
+	}
+
+	public function postLogin(Request $request)
+	{
+		$login = [
+			'email' => $request->email,
+			'password' => $request->password,
+		];
+
+		if(Auth::guard('admin')->attempt($login, $request->has('remember'))){
+			// return redirect()->route('dashBoard');
+			echo "string login thành công";
+		}
+		// else {
+		// 	return redirect()->route('getLogin');
+		// }
 	}
 }
