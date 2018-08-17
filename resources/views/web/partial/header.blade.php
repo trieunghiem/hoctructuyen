@@ -1,6 +1,4 @@
 
-
-
 <div id="site-header" class="hidden-sm hidden-xs hidden-md">
     <nav id="site-menu" class="navbar navbar-default navbar_top">
         <div class="container-fluid">
@@ -11,22 +9,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="images/logo.png" style="height: 44px;"></a>
+                <a class="navbar-brand" href="/"><img src="{{ url('tem') }}/images/logo.png" style="height: 44px;"></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Chủ đề <i class="fa fa-bars" aria-hidden="true"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Công nghệ thông tin</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Thiết kế - Nhiếp ảnh</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Sale - Marketing</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Kinh doanh - Khởi nghiệp</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Phát triển cá nhân</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Sức khỏe - Giới tính</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Nghệ thuật - Làm đẹp</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Ngoại ngữ</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Nuôi dạy con </a></li>
+
+                        @foreach($cateCourse as $key => $value)
+                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> {{$value['name']}}</a></li>
+                        @endforeach
+
                         </ul>
                     </li>
                     <li>
@@ -187,15 +181,9 @@
     <div class="panel_content">
         <div class="main-menu header-profile__info-link">
             <ul class="account__navigation">
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Công nghệ thông tin</a></li>
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Thiết kế - Nhiếp ảnh</a></li>
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Sale - Marketing</a></li>
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Kinh doanh - Khởi nghiệp</a></li>
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Phát triển cá nhân</a></li>
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Sức khỏe - Giới tính</a></li>
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Nghệ thuật - Làm đẹp</a></li>
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Ngoại ngữ</a></li>
-                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Nuôi dạy con </a></li>
+            @foreach($cateCourse as $key => $value)
+                <li class="account__navigation_item account__navigation_item--dashboard"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> {{$value['name']}}</a></li>
+            @endforeach
             </ul>
         </div>
     </div>
