@@ -34,6 +34,6 @@ class AdminController extends Controller
 
 	public function dashBoard()
 	{
-		echo "string vào admin thành công";
+		return view('admin.dashBoard.content');
 	}
 }
