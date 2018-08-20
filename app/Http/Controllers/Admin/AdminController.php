@@ -23,11 +23,17 @@ class AdminController extends Controller
 		];
 
 		if(Auth::guard('admin')->attempt($login, $request->has('remember'))){
-			// return redirect()->route('dashBoard');
-			echo "string login thành công";
+			return redirect()->route('dashBoard');
+			// echo "string login thành công";
 		}
-		// else {
-		// 	return redirect()->route('getLogin');
-		// }
+		else {
+			return redirect()->route('getLogin');
+		}
+	}
+
+
+	public function dashBoard()
+	{
+		echo "string vào admin thành công";
 	}
 }
