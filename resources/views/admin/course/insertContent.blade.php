@@ -31,8 +31,45 @@
             <div class="box-body">
               <div class="row margin">
                 <div class="col-sm-12">
-                  <input type="text" value="" class="slider form-control" data-slider-min="-200" data-slider-max="200" data-slider-step="5" data-slider-value="[-100,100]" data-slider-orientation="horizontal" data-slider-selection="before" data-slider-tooltip="show" data-slider-id="red">
 
+                  <div class="form-group">
+                    <label for="nameCourse">Tên Khóa Học</label>
+                    <input type="text" class="form-control" id="nameCourse" placeholder="Tên khóa học">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="aliasCourse">Đường dẫn thân thiện</label>
+                    <input type="text" class="form-control" id="aliasCourse" placeholder="Đường dẫn">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="descriptionCourse">Description</label>
+                    <textarea class="form-control" rows="3" id="descriptionCourse" placeholder="Description ..."></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="teacherCourse">Giảng viên</label>
+                    <input type="text" class="form-control" id="teacherCourse" placeholder="Giảng viên">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="fileCourse">File video</label>
+                    <input type="file" id="fileCourse">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="urlVideoCourse">Url video</label>
+                    <input type="text" class="form-control" id="urlVideoCourse" placeholder="url video">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Bạn sẽ học được gì</label>
+                    <input type="text" class="form-control">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                    <br>
+                    <input type="text" class="form-control">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                  </div>
       
                 </div>
               </div>
