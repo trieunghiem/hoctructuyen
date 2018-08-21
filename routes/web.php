@@ -24,4 +24,10 @@ Route::post('admin/Login', 'Admin\AdminController@postLogin')->name('postLogin')
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin_login']], function (){
 	Route::get('dashBoard', 'Admin\AdminController@dashBoard')->name('dashBoard');
+
+	Route::group(['prefix' => 'course'], function (){
+		Route::get('insert', 'Admin\CourseController@getInsertCourse')->name('getInsertCourse');
+	});
+
+
 });
