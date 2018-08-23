@@ -149,6 +149,92 @@
                             </div>
                           </div>
                         </div>
+
+
+                        <div id="collapse1" class="panel-collapse collapse in " aria-expanded="true">
+                          <div class="panel-body">
+
+                            <div class="col">
+                              <div class="container-fluid">
+                                <div class="row">
+                                  <div class="col-xs-5 col-md-8">
+                                    <div class="title">
+                                      <a href="#">
+                                      <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                        Bài 1: Giới thiệu khóa học</a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 col-md-2">
+                                    <div class="link">
+                                    &nbsp;
+                                      <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(22791);">Học thử</a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 col-md-2">
+                                    <div class="time">00:07:05
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="col">
+                              <div class="container-fluid">
+                                <div class="row">
+                                  <div class="col-xs-5 col-md-8">
+                                    <div class="title">
+                                      <a href="#">
+                                      <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                        Bài 1: Giới thiệu khóa học</a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 col-md-2">
+                                    <div class="link">
+                                    &nbsp;
+                                      <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(22791);">Học thử</a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 col-md-2">
+                                    <div class="time">00:07:05
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                            <div class="col">
+                              <div class="container-fluid">
+                                <div class="row">
+                                  <div class="col-xs-5 col-md-8">
+                                    <div class="title">
+                                      <a href="#">
+                                      <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                        Bài 1: Giới thiệu khóa học</a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 col-md-2">
+                                    <div class="link">
+                                    &nbsp;
+                                      <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(22791);">Học thử</a>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 col-md-2">
+                                    <div class="time">00:07:05
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            
+                          </div>
+                        </div>
+
+
+
                       </div>
                     </div>
                   </div>

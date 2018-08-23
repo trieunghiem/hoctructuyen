@@ -31,6 +31,9 @@
   <link rel="stylesheet" href="{{ url('AdminLte') }}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
 
+  <link rel="stylesheet" href="{{ url('AdminLte') }}/style.css">
+
+
 <!-- jQuery 2.2.3 -->
 <script src="{{ url('AdminLte') }}/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
