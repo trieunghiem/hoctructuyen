@@ -96,7 +96,7 @@
                   <div class="form-group">
                     <label>Ảnh đại diện</label>
                     <span class="btn">
-                        <img class="img_prod" src="{{url('lib/images/anh_chinh.png')}}" id="anh_chinh" style="width: 120px; height: 120px;">
+                        <img class="img_prod" src="{{url('lib/images/anh_chinh.PNG')}}" id="anh_chinh" style="width: 120px; height: 120px;">
                         <input type="file" name="file_anh_chinh" id="file_anh_chinh" style="display: none;" onchange="changeAnhChinh(this);">
                     </span>
                   </div>
