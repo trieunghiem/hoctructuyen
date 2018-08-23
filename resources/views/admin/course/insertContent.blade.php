@@ -63,12 +63,32 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Bạn sẽ học được gì</label>
-                    <input type="text" class="form-control">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                    <div style="display: flex;">
+                      <label style="padding-right: 20px;">Bạn sẽ học được gì</label>
+                      <button type="button" class="btn btn-info">Thêm</button>
+                    </div>
                     <br>
-                    <input type="text" class="form-control">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                    <div style="display: flex;">
+                      <input type="text" class="form-control">
+                      <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <br>
+                    <div style="display: flex;">
+                      <input type="text" class="form-control">
+                      <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <br>
+                    <div style="display: flex;">
+                      <input type="text" class="form-control">
+                      <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <br>
+                    <div style="display: flex;">
+                      <input type="text" class="form-control">
+                      <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <br>
+                    
                   </div>
       
                 </div>
