@@ -120,6 +120,46 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+
+
+
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box box-primary">
+            <div class="box-header">
+              <h3 class="box-title">Nội Dung Khóa Học</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row margin">
+                <div class="col-sm-12">
+                  <div class="content">
+                    <div class="panel-group" id="accordion">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="" aria-expanded="true"><i class="fa fa-minus-square" aria-hidden="true"></i> Phần 1: Tổng quan khóa học</a>
+                                </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- /.box-body -->
+            </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
     </section>
     <!-- /.content -->
   </div>

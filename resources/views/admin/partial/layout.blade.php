@@ -30,12 +30,20 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ url('AdminLte') }}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+
+<!-- jQuery 2.2.3 -->
+<script src="{{ url('AdminLte') }}/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+
+<script src="{{ url('lib/js/toastr.min.js') }}"></script>
+<link rel="stylesheet" href="{{ url('lib/css/toastr.min.css') }}">
+
+  <script>
+    var $ = jQuery;
+    var baseURL_editor = "{!! url('/') !!}";
+  </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -510,10 +518,27 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 2.2.3 -->
-<script src="{{ url('AdminLte') }}/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+  <script type="text/javascript">
+    var displayMessage = function (message, msgType) {
+      toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "positionClass": "toast-top-right",
+      "onClick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "4000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+      };
+      toastr[msgType](message);
+    };
+  </script>
+
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);

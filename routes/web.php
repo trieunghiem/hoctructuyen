@@ -27,6 +27,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_login']], function ()
 
 	Route::group(['prefix' => 'course'], function (){
 		Route::get('insert', 'Admin\CourseController@getInsertCourse')->name('getInsertCourse');
+
+
+
+
+		Route::get('update/{id}', 'Admin\CourseController@getUpdateCourse');
 	});
 
 

@@ -14,5 +14,12 @@ class CourseController extends Controller
 	{
 		return view('admin.course.insertContent');
 	}
+
+
+
+	public function getUpdateCourse(Request $request)
+	{
+		return view('admin.course.updateContent');
+	}
 	
 }
