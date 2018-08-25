@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | Dashboard</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -53,6 +54,30 @@
   </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modalProgress">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Loading ...</h5>
+      </div>
+      <div class="modal-body">
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-info progress-bar-striped active" id="progressbarContent" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+            50% Complete (info)
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="wrapper">
 
   <header class="main-header">
@@ -579,5 +604,6 @@
 <script src="{{ url('AdminLte') }}/dist/js/pages/dashboard.js"></script>
 
 <script src="{{ url('AdminLte') }}/dist/js/demo.js"></script>
+
 </body>
 </html>

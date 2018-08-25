@@ -22,4 +22,11 @@ class CourseController extends Controller
 		return view('admin.course.updateContent');
 	}
 	
+
+
+
+	public function postSaveCourse(Request $request)
+	{
+		return 1;
+	}
 }
