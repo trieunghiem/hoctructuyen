@@ -68,18 +68,15 @@
                     <input type="text" class="form-control" id="urlVideoCourse" placeholder="url video">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group row-learn">
                     <div style="display: flex;">
                       <label style="padding-right: 20px;">Bạn sẽ học được gì</label>
-                      <button type="button" class="btn btn-info">Thêm</button>
+                      <button type="button" class="btn btn-info buttonContent" onclick="libAddRowLearn($(this))">Thêm</button>
                     </div>
-                    <br>
-                    <div style="display: flex;">
+                    <div class="learn-box">
                       <input type="text" class="form-control">
-                      <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                      <button type="button" name="learnWhat[]" class="btn btn-danger btn-sm" onclick="libRemoveRowLearn($(this))"><i class="fa fa-trash-o"></i></button>
                     </div>
-                    <br>
-                    
                   </div>
 
 
@@ -121,14 +118,12 @@
       </div>
       <!-- /.row -->
 
-
-
-
       <div class="row">
         <div class="col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Nội Dung Khóa Học</h3>
+              <button type="button" class="btn btn-info buttonContent">Thêm Nội Dung</button>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               </div>
@@ -142,98 +137,59 @@
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="display: flex;">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="" aria-expanded="true"><i class="fa fa-minus-square" aria-hidden="true"></i> Phần 1: Tổng quan khóa học</a>
                                 </h4>
+                                <button type="button" class="btn btn-info buttonContent">Sửa</button>
+                                <button type="button" class="btn btn-info buttonContent">Thêm Bài Mới</button>
                             </div>
                           </div>
                         </div>
-
 
                         <div id="collapse1" class="panel-collapse collapse in " aria-expanded="true">
                           <div class="panel-body">
-
-                            <div class="col">
-                              <div class="container-fluid">
-                                <div class="row">
-                                  <div class="col-xs-5 col-md-8">
-                                    <div class="title">
-                                      <a href="#">
-                                      <i class="fa fa-play-circle" aria-hidden="true"></i>
-                                        Bài 1: Giới thiệu khóa học</a>
-                                    </div>
-                                  </div>
-                                  <div class="col-xs-4 col-md-2">
-                                    <div class="link">
-                                    &nbsp;
-                                      <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(22791);">Học thử</a>
-                                    </div>
-                                  </div>
-                                  <div class="col-xs-3 col-md-2">
-                                    <div class="time">00:07:05
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-
-                            <div class="col">
-                              <div class="container-fluid">
-                                <div class="row">
-                                  <div class="col-xs-5 col-md-8">
-                                    <div class="title">
-                                      <a href="#">
-                                      <i class="fa fa-play-circle" aria-hidden="true"></i>
-                                        Bài 1: Giới thiệu khóa học</a>
-                                    </div>
-                                  </div>
-                                  <div class="col-xs-4 col-md-2">
-                                    <div class="link">
-                                    &nbsp;
-                                      <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(22791);">Học thử</a>
-                                    </div>
-                                  </div>
-                                  <div class="col-xs-3 col-md-2">
-                                    <div class="time">00:07:05
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-
-
-                            <div class="col">
-                              <div class="container-fluid">
-                                <div class="row">
-                                  <div class="col-xs-5 col-md-8">
-                                    <div class="title">
-                                      <a href="#">
-                                      <i class="fa fa-play-circle" aria-hidden="true"></i>
-                                        Bài 1: Giới thiệu khóa học</a>
-                                    </div>
-                                  </div>
-                                  <div class="col-xs-4 col-md-2">
-                                    <div class="link">
-                                    &nbsp;
-                                      <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(22791);">Học thử</a>
-                                    </div>
-                                  </div>
-                                  <div class="col-xs-3 col-md-2">
-                                    <div class="time">00:07:05
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            
+                            <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info"> 
+                              <tbody>
+                                <tr role="row" class="odd">
+                                  <td class="sorting_1">Gecko</td>
+                                  <td>Firefox 1.0</td>
+                                  <td>Win 98+ / OSX.2+</td>
+                                  <td>1.7</td>
+                                  <td>A</td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                  <td class="sorting_1">Gecko</td>
+                                  <td>Firefox 2.0</td>
+                                  <td>Win 98+ / OSX.2+</td>
+                                  <td>1.8</td>
+                                  <td>A</td>
+                                </tr>
+                                <tr role="row" class="even">
+                                  <td class="sorting_1">Gecko</td>
+                                  <td>Netscape Browser 8</td>
+                                  <td>Win 98SE+</td>
+                                  <td>1.7</td>
+                                  <td>A</td>
+                                </tr>
+                                <tr role="row" class="odd">
+                                  <td class="sorting_1">Gecko</td>
+                                  <td>Netscape Navigator 9</td>
+                                  <td>Win 98+ / OSX.2+</td>
+                                  <td>1.8</td>
+                                  <td>A</td>
+                                </tr>
+                                <tr role="row" class="even">
+                                  <td class="sorting_1">Gecko</td>
+                                  <td>Mozilla 1.0</td>
+                                  <td>Win 95+ / OSX.1+</td>
+                                  <td>1</td>
+                                  <td>A</td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </div>
                         </div>
-
-
 
                       </div>
                     </div>

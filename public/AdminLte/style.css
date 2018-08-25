@@ -1,0 +1,10 @@
+.buttonContent {
+	align-content: center;
+	margin-top: -7px;
+	margin-right: 10px;
+}
+
+.learn-box{
+	display: flex;
+    padding-top: 20px;
+}

@@ -68,18 +68,15 @@
                     <input type="text" class="form-control" id="urlVideoCourse" placeholder="url video">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group row-learn">
                     <div style="display: flex;">
                       <label style="padding-right: 20px;">Bạn sẽ học được gì</label>
-                      <button type="button" class="btn btn-info">Thêm</button>
+                      <button type="button" class="btn btn-info buttonContent" onclick="libAddRowLearn($(this))">Thêm</button>
                     </div>
-                    <br>
-                    <div style="display: flex;">
+                    <div class="learn-box">
                       <input type="text" class="form-control">
-                      <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                      <button type="button" name="learnWhat[]" class="btn btn-danger btn-sm" onclick="libRemoveRowLearn($(this))"><i class="fa fa-trash-o"></i></button>
                     </div>
-                    <br>
-                    
                   </div>
 
 

@@ -7,6 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="{{ url('AdminLte') }}/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="{{ url('AdminLte') }}/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -41,7 +42,10 @@
 
 
 <script src="{{ url('lib/js/toastr.min.js') }}"></script>
+
 <link rel="stylesheet" href="{{ url('lib/css/toastr.min.css') }}">
+
+<script src="{{ url('js/app/lib/lib.js') }}"></script>
 
   <script>
     var $ = jQuery;
@@ -573,7 +577,7 @@
 <script src="{{ url('AdminLte') }}/dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ url('AdminLte') }}/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
+
 <script src="{{ url('AdminLte') }}/dist/js/demo.js"></script>
 </body>
 </html>
