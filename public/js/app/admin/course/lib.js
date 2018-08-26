@@ -21,9 +21,11 @@ function submitFormCourse() {
     messageForm.ajaxForm({
       uploadProgress: libProgressBar,
       success:function(data){
-        // $('#id_new').val(data);
+        $('#courseId').val(data);
         toastr.success('Lưu thành công!','Thông báo.' );
         $('#modalProgress').modal('hide');
+        $("#fileCourse").val("");
+        $("#file_anh_chinh").val("");
       },
 
       error:function(e){
