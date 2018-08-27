@@ -4,6 +4,8 @@
 <script src="{{ url('lib/plugin-soanthao/func_ckfinder.js') }}"></script>
 <script src="{{ url('lib/js/jquery.form.js') }}"></script>
 
+<script src="{{ url('js/app/admin/course/lib.js') }}"></script>
+
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -29,70 +31,118 @@
               </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row margin">
-                <div class="col-sm-12">
+            <form method="post" name="" id="formCourse" enctype="multipart/form-data" action="{{route('postSaveCourse')}}">
+              <div class="box-body">
+                <div class="row margin">
+                  <div class="col-sm-12">
 
-                  <div class="form-group">
-                    <label for="nameCourse">Tên Khóa Học</label>
-                    <input type="text" class="form-control" id="nameCourse" placeholder="Tên khóa học">
-                  </div>
-                  <div class="form-group">
-                    <label for="aliasCourse">Đường dẫn thân thiện</label>
-                    <input type="text" class="form-control" id="aliasCourse" placeholder="Đường dẫn">
-                  </div>
-                  <div class="form-group">
-                    <label for="descriptionCourse">Description</label>
-                    <textarea class="form-control" rows="3" id="descriptionCourse" placeholder="Description ..."></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="teacherCourse">Giảng viên</label>
-                    <input type="text" class="form-control" id="teacherCourse" placeholder="Giảng viên">
-                  </div>
-                  <div class="form-group">
-                    <label for="fileCourse">File video</label>
-                    <input type="file" id="fileCourse">
-                  </div>
-                  <div class="form-group">
-                    <label for="urlVideoCourse">Url video</label>
-                    <input type="text" class="form-control" id="urlVideoCourse" placeholder="url video">
-                  </div>
-                  <div class="form-group row-learn">
-                    <div style="display: flex;">
-                      <label style="padding-right: 20px;">Bạn sẽ học được gì</label>
-                      <button type="button" class="btn btn-info buttonContent" onclick="libAddRowLearn($(this))">Thêm</button>
+                    <div class="form-group">
+                      <label for="nameCourse">Tên Khóa Học</label>
+                      <input type="text" name="name" class="form-control" id="nameCourse" placeholder="Tên khóa học" onkeyup="changeTitle($(this).val(), '#aliasCourse')" value="{{$course->name}}">
+                      <input type="hidden" name="id" id="courseId" value="{{$course->id}}">
                     </div>
-                    <div class="learn-box">
-                      <input type="text" class="form-control">
-                      <button type="button" name="learnWhat[]" class="btn btn-danger btn-sm" onclick="libRemoveRowLearn($(this))"><i class="fa fa-trash-o"></i></button>
+
+                    <div class="form-group">
+                      <label for="aliasCourse">Đường dẫn thân thiện</label>
+                      <input type="text" name="alias" class="form-control" id="aliasCourse" placeholder="Đường dẫn" value="{{$course->alias}}">
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Giới thiệu khóa học</label>
-                    <textarea rows="3" name="content" id="content"></textarea>
-                    <script>
-                        jQuery(function($) {
-                                ckeditor('content');
-                            })
-                    </script>
-                  </div>
-                  <div class="form-group">
-                    <label>Ảnh đại diện</label>
-                    <span class="btn">
-                        <img class="img_prod" src="{{url('lib/images/anh_chinh.PNG')}}" onclick="libImgAnhChinh()" id="anh_chinh" style="width: 120px; height: 120px;">
-                        <input type="file" name="file_anh_chinh" id="file_anh_chinh" style="display: none;" onchange="libChangeAnhChinh(this);">
-                    </span>
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      <input type="checkbox" class="minimal" name="status" value="1">
-                    </label>
-                    <label>
-                      Hiển thị
-                    </label>
+
+
+                    <div class="form-group">
+                      <label for="descriptionCourse">Description</label>
+                      <textarea class="form-control" name="description" rows="3" id="descriptionCourse" placeholder="Description ...">{{$course->description}}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="teacherCourse">Giảng viên</label>
+                      <input type="text" name="teacher" class="form-control" id="teacherCourse" placeholder="Giảng viên">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="fileCourse">File video</label>
+                      <input type="file" name="path_file_video" id="fileCourse">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="urlVideoCourse">Url video</label>
+                      <input type="text" name="url_video" class="form-control" id="urlVideoCourse" placeholder="url video" value="{{$course->url_video}}">
+                    </div>
+
+                    <div class="form-group row-learn">
+                      <div style="display: flex;">
+                        <label style="padding-right: 20px;">Bạn sẽ học được gì</label>
+                        <button type="button" class="btn btn-info buttonContent" onclick="libAddRowLearn($(this))">Thêm</button>
+                      </div>
+                      @if(count(json_decode($course->learn_what)) == 0)
+                        <div class="learn-box">
+                          <input type="text" name="learn_what[]" class="form-control">
+                          <button type="button" class="btn btn-danger btn-sm" onclick="libRemoveRowLearn($(this))"><i class="fa fa-trash-o"></i></button>
+                        </div>
+                      @else
+                        @foreach(json_decode($course->learn_what) as $key => $value)
+                          <div class="learn-box">
+                            <input type="text" name="learn_what[]" class="form-control" value="{{$value}}">
+                            <button type="button" class="btn btn-danger btn-sm" onclick="libRemoveRowLearn($(this))"><i class="fa fa-trash-o"></i></button>
+                          </div>
+                        @endforeach
+                      @endif
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="priceCourse">Giá</label>
+                      <input type="number" name="price" class="form-control" id="priceCourse" value="{{$course->price}}">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="oldPriceCourse">Giá cũ (nếu có)</label>
+                      <input type="number" name="old_price" class="form-control" id="oldPriceCourse" value="{{$course->old_price}}">
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label>Giới thiệu khóa học</label>
+                      <textarea rows="3" name="content" id="content">{{$course->content}}</textarea>
+                      <script>
+                          jQuery(function($) {
+                                  ckeditor('content');
+                              })
+                      </script>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Ảnh đại diện</label>
+                      <span class="btn">
+                          @if($course->avatar == null || $course->avatar == '')
+                            <img class="img_prod" src="{{url('lib/images/anh_chinh.PNG')}}" onclick="libImgAnhChinh()" id="anh_chinh" style="width: 120px; height: 120px;">
+
+                          @else
+                            <img class="img_prod" src="{{asset('storage/' . $course->avatar)}}" onclick="libImgAnhChinh()" id="anh_chinh" style="width: 120px; height: 120px;">
+                          @endif
+                          
+                          <input type="file" name="avatar" id="file_anh_chinh" style="display: none;" onchange="libChangeAnhChinh(this);">
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label>
+                        @if($course->status == 1)
+                          <input type="checkbox" class="minimal" name="status" value="1" checked="checked">
+                        @else
+                          <input type="checkbox" class="minimal" name="status" value="1">
+                        @endif
+                      </label>
+                      <label>
+                        Hiển thị
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
+            </form>
+            <div class="box-footer">
+              <button type="button" class="btn btn-primary" onclick="submitFormCourse()">Lưu</button>
             </div>
             <!-- /.box-body -->
           </div>

@@ -17,26 +17,23 @@ class CourseController extends Controller
 		return view('admin.course.insertContent');
 	}
 
-
-
 	public function getUpdateCourse(Request $request)
 	{
-		return view('admin.course.updateContent');
+		$course = CourseModel::find($request->id);
+		if (!isset($course->id)) {
+			return redirect()->route('dashBoard');
+		}
+		return view('admin.course.updateContent', compact('course'));
 	}
 	
-
-
-
 	public function postSaveCourse(Request $request)
 	{
 
-		$course = $request->only(['name', 'alias', 'description', 'url_video', 'price', 'old_price']);
+		$course = $request->only(['name', 'alias', 'description', 'url_video', 'content']);
 
 		if($request->hasFile('avatar') && LibImageVideoController::checkTypeExtensionFile($request->file('avatar')) == 'image'){
-
 			$avatarPath = LibImageVideoController::saveAvatarCourse($request->file('avatar'));
 			$course['avatar'] = ($avatarPath != 'false') ? $avatarPath : '';
-
 		}
 
 		if($request->hasFile('path_file_video') && LibImageVideoController::checkTypeExtensionFile($request->file('path_file_video')) == 'video'){
@@ -46,6 +43,14 @@ class CourseController extends Controller
 		}
 
 		$course['status'] = (isset($request->status) && $request->status == 1) ? 1 : 0;
+
+		if (isset($request->price)) {
+			$course['price'] = (int)($request->price);
+		}
+
+		if (isset($request->old_price)) {
+			$course['old_price'] = (int)($request->old_price);
+		}
 
 		$learn_what = [];
 

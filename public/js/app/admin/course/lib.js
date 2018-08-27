@@ -1,9 +1,5 @@
 function submitFormCourse() {
 
-  // toastr.success('Lưu thành công!','Thông báo.' );
-
-
-
   var messageForm = $('#formCourse');
 
   $.ajaxSetup({
