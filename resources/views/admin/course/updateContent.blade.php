@@ -5,6 +5,7 @@
 <script src="{{ url('lib/js/jquery.form.js') }}"></script>
 
 <script src="{{ url('js/app/admin/course/lib.js') }}"></script>
+<script src="{{ url('js/app/admin/course/updateContent.js') }}"></script>
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -156,7 +157,7 @@
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Nội Dung Khóa Học</h3>
-              <button type="button" class="btn btn-info buttonContent">Thêm Nội Dung</button>
+              <button type="button" class="btn btn-info buttonContent" onclick="showModalChapter()">Thêm Nội Dung</button>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               </div>
@@ -176,6 +177,7 @@
                                 </h4>
                                 <button type="button" class="btn btn-info buttonContent">Sửa</button>
                                 <button type="button" class="btn btn-info buttonContent">Thêm Bài Mới</button>
+                                <button type="button" class="btn btn-info buttonContent" onclick="showModalDeleteChapter()">Xóa Nội Dung</button>
                             </div>
                           </div>
                         </div>
@@ -237,5 +239,34 @@
     </section>
     <!-- /.content -->
   </div>
+
+<!-- modal create chapter -->
+
+<div class="modal fade" id="modalChapter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nội Dung Khóa Học</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Tên Nội Dung</label>
+            <input type="text" class="form-control" id="nameChapter" name="name">
+            <input type="hidden" name="id" value="" id="idChapter">
+            <input type="hidden" name="course_id" value="" id="idCourse">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection
