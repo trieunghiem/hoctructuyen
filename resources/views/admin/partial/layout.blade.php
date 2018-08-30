@@ -101,7 +101,18 @@
   </div>
 </div>
 
+<!-- modal video -->
 
+<div id="modalVideo" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">                   
+        <div class="embed-responsive embed-responsive-16by9" id="contentModalVideo">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="wrapper">
 

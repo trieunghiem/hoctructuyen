@@ -175,7 +175,7 @@
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="" aria-expanded="true"><i class="fa fa-minus-square" aria-hidden="true"></i> Phần 1: Tổng quan khóa học</a>
                                 </h4>
-                                <button type="button" class="btn btn-info buttonContent">Sửa</button>
+                                <button type="button" class="btn btn-info buttonContent" onclick="moDalVideo()">Sửa</button>
                                 <button type="button" class="btn btn-info buttonContent">Thêm Bài Mới</button>
                                 <button type="button" class="btn btn-info buttonContent" onclick="showModalDeleteChapter()">Xóa Nội Dung</button>
                             </div>

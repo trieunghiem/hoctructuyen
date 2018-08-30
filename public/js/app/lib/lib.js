@@ -80,3 +80,11 @@ function changeTitle(str, id) {
 function actionDeleteObject(){
     window[$("#functionNameCallBackDelete").val()]();
 }
+
+
+
+$(document).ready(function(){
+    $("#modalVideo").on("hidden.bs.modal", function (e) {
+        $('#contentModalVideo').html('');
+    });
+});
