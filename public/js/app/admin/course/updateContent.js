@@ -1,6 +1,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 function showModalDeleteChapter(idObjectDelete = 1) {
 	var contentMessageDelete = 'html';
 	var functionNameCallBackDelete = 'deleteChapter';
@@ -20,6 +30,32 @@ function deleteChapter() {
 
 function showModalChapter() {
 	$('#modalChapter').modal('show');
+}
+
+
+function submitFormChapter() {
+	var messageForm = $('#formChapter');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    messageForm.ajaxForm({
+      uploadProgress: libProgressBar,
+      success:function(data){
+        $('#idChapter').val(data);
+        toastr.success('Lưu thành công!','Thông báo.' );
+        $('#modalProgress').modal('hide');
+        $('#modalChapter').modal('hide');
+      },
+
+      error:function(e){
+        toastr.error('Xảy ra lỗi, vui lòng thử lại!','Thông báo.' );
+        $('#modalProgress').modal('hide');
+      }
+    }).submit();
 }
 
 

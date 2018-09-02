@@ -26,11 +26,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_login']], function ()
 	Route::get('dashBoard', 'Admin\AdminController@dashBoard')->name('dashBoard');
 
 	Route::group(['prefix' => 'course'], function (){
+		Route::get('list', 'Admin\CourseController@getListCourse')->name('getListCourse');
+
 		Route::get('insert', 'Admin\CourseController@getInsertCourse')->name('getInsertCourse');
 
 		Route::get('update/{id}', 'Admin\CourseController@getUpdateCourse');
 
 		Route::post('saveCourse', 'Admin\CourseController@postSaveCourse')->name('postSaveCourse');
+
+		Route::post('saveChapter', 'Admin\CourseController@postSaveChapter')->name('postSaveChapter');
+
+		Route::post('list', 'Admin\CourseController@postGetListCourse')->name('postGetListCourse');
 	});
 
 

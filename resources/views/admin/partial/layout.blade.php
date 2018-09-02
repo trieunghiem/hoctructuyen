@@ -46,11 +46,17 @@
 
 <link rel="stylesheet" href="{{ url('lib/css/toastr.min.css') }}">
 
+<script src="{{ url('lib/js/bootstrap-toggle.min.js') }}"></script>
+
+<link rel="stylesheet" href="{{ url('lib/css/bootstrap-toggle.min.css') }}">
+
 <script src="{{ url('js/app/lib/lib.js') }}"></script>
 
   <script>
     var $ = jQuery;
-    var baseURL_editor = "{!! url('/') !!}";
+    var baseURL_editor = urlSite = "{!! url('/') !!}";
+    var adminUrl = "{!! url('/') !!}/admin";
+    var urlStorage = "{!! url('/') !!}/storage/";
   </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

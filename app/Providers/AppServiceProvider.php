@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        view()->composer('web.partial.header', function($view){
+        view()->composer(['web.partial.header', 'admin.course.*'], function($view){
             $cateCourse = \Config::get('cateCourse');
             $view->with(['cateCourse' => $cateCourse]);
         });
