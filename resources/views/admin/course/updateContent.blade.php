@@ -157,7 +157,8 @@
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Nội Dung Khóa Học</h3>
-              <button type="button" class="btn btn-info buttonContent" onclick="showModalChapter()">Thêm Nội Dung</button>
+              <!-- <button type="button" class="btn btn-info buttonContent" onclick="showModalChapter()">Thêm Nội Dung</button> -->
+              <button type="button" class="btn btn-success" onclick="showModalChapter()"><i class="fa fa-plus-square"> Thêm</i></button>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               </div>
@@ -176,14 +177,15 @@
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$value->id}}" class="" aria-expanded="true"><i class="fa fa-minus-square" aria-hidden="true"></i> {{$value->name}}</a>
                             </h4>
                             <div style="float: right;">
-                              <button type="button" class="btn btn-info buttonContent" onclick="moDalVideo()">Sửa</button>
-                              <button type="button" class="btn btn-info buttonContent">Thêm Bài Mới</button>
-                              <button type="button" class="btn btn-info buttonContent" onclick="showModalDeleteChapter()">Xóa Nội Dung</button>
+                              <!-- <button type="button" class="btn btn-info buttonContent" onclick="moDalVideo()">Sửa</button> -->
+                              <button type="button" class="btn btn-warning buttonContent" onclick="editChapter({{$value->id}})"><i class="fa fa-eye"></i> Sửa</button>
+                              <button type="button" class="btn btn-info buttonContent"><i class="fa fa-plus-square"> Thêm</i></button>
+                              <button type="button" class="btn btn-danger buttonContent" onclick="showModalDeleteChapter({{$value->id}})"><i class="fa fa-trash-o"></i> Xóa</button>
                             </div>
                         </div>
                       </div>
                     </div>
-                    <div id="collapse{{$value->id}}" class="panel-collapse collapse in " aria-expanded="true">
+                    <div id="collapse{{$value->id}}" class="panel-collapse collapse" aria-expanded="true">
                       <div class="panel-body">
                         <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info"> 
                           <tbody>

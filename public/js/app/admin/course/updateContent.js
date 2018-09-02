@@ -3,6 +3,39 @@
 
 
 
+function editChapter(id) {
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  $.ajax({
+
+      url : adminUrl + "/course/getChapter",
+
+      type : 'post',
+
+      cache : false,
+
+      data : {id: id},
+
+      success : function(data){
+        var d = JSON.parse(data);
+        $('#nameChapter').val(d.name);
+        $('#idChapter').val(d.id);
+        $('#modalChapter').modal('show');
+      },
+
+      error: function() {
+        toastr.error('Xảy ra lỗi, vui lòng load lại trang!','Thông báo.' );
+      }
+  });
+}
+
+
+
+
 
 
 
@@ -12,7 +45,7 @@
 
 
 function showModalDeleteChapter(idObjectDelete = 1) {
-	var contentMessageDelete = 'html';
+	var contentMessageDelete = '<p>Bạn muốn xóa nội dung này?</p><p>Các bài học trong nội dung này cũng sẽ bị xóa.</p>';
 	var functionNameCallBackDelete = 'deleteChapter';
 	$("#contentMessageDelete").html(contentMessageDelete);
 	$("#functionNameCallBackDelete").val(functionNameCallBackDelete);
@@ -24,11 +57,39 @@ function showModalDeleteChapter(idObjectDelete = 1) {
 
 function deleteChapter() {
 	$('#modalDeleteObject').modal('hide');
-	alert('trieu ' + $("#idObjectDelete").val());
+
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  $.ajax({
+
+    url : adminUrl + "/course/deleteChapter",
+
+    type : 'post',
+
+    cache : false,
+
+    data : {id: $("#idObjectDelete").val()},
+
+    success : function(data){
+      if (data == 'true') {
+        toastr.success('Xóa thành công!','Thông báo.' );
+      }
+    },
+
+    error: function() {
+      toastr.error('Xảy ra lỗi, vui lòng load lại trang!','Thông báo.' );
+    }
+  });
 }
 
 
 function showModalChapter() {
+  $('#nameChapter').val(null);
+  $('#idChapter').val(null);
 	$('#modalChapter').modal('show');
 }
 

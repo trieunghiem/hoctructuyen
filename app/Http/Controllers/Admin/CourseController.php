@@ -146,4 +146,26 @@ class CourseController extends Controller
 			return $chapter->id;
 		}
 	}
+
+
+
+
+	public function postGetChapter(Request $request)
+	{
+		return json_encode(ChapterModel::find($request->id));
+	}
+
+
+	public function postDeleteChapter(Request $request)
+	{
+		$chap = ChapterModel::find($request->id);
+		if ($chap->delete()) {
+			LessonModel::where('chapter_id', $request->id)->delete();
+			return 'true';
+		}
+	}
+
+
+
+
 }
