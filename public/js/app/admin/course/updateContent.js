@@ -1,6 +1,37 @@
 
 
+// $(function () {
+//    $('#ddtime').datetimepicker({
+//       format: 'hh:mm:ss'
+//    });
+// });
 
+
+
+function submitFormLesson() {
+    var messageForm = $('#formLesson');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    messageForm.ajaxForm({
+      uploadProgress: libProgressBar,
+      success:function(data){
+        $('#idChapter').val(data);
+        toastr.success('Lưu thành công!','Thông báo.' );
+        $('#modalProgress').modal('hide');
+        $('#modalChapter').modal('hide');
+      },
+
+      error:function(e){
+        toastr.error('Xảy ra lỗi, vui lòng thử lại!','Thông báo.' );
+        $('#modalProgress').modal('hide');
+      }
+    }).submit();
+}
 
 
 function editChapter(id) {
@@ -33,6 +64,13 @@ function editChapter(id) {
   });
 }
 
+
+
+
+
+function showModalLesson(id) {
+  $('#modalLesson').modal('show');
+}
 
 
 

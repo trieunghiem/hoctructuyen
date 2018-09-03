@@ -41,6 +41,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_login']], function ()
 		Route::post('getChapter', 'Admin\CourseController@postGetChapter')->name('postGetChapter');
 
 		Route::post('deleteChapter', 'Admin\CourseController@postDeleteChapter')->name('postDeleteChapter');
+
+		Route::post('saveLesson', 'Admin\CourseController@postSaveLesson')->name('postSaveLesson');
 	});
 
 

@@ -179,7 +179,7 @@
                             <div style="float: right;">
                               <!-- <button type="button" class="btn btn-info buttonContent" onclick="moDalVideo()">Sửa</button> -->
                               <button type="button" class="btn btn-warning buttonContent" onclick="editChapter({{$value->id}})"><i class="fa fa-eye"></i> Sửa</button>
-                              <button type="button" class="btn btn-info buttonContent"><i class="fa fa-plus-square"> Thêm</i></button>
+                              <button type="button" class="btn btn-info buttonContent" onclick="showModalLesson({{$value->id}})"><i class="fa fa-plus-square"> Thêm</i></button>
                               <button type="button" class="btn btn-danger buttonContent" onclick="showModalDeleteChapter({{$value->id}})"><i class="fa fa-trash-o"></i> Xóa</button>
                             </div>
                         </div>
@@ -243,6 +243,57 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" onclick="submitFormChapter()">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalLesson" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nội Dung Bài Học</h5>
+       <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <form method="post" name="" id="formLesson" enctype="multipart/form-data" action="{{route('postSaveLesson')}}">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Tên Bài Học</label>
+            <input type="text" class="form-control" id="nameChapter" name="name">
+            <input type="hidden" name="id" id="idChapter" value="">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">File video</label>
+            <input type="file" name="path_file_video" id="fileCourse">
+          </div>
+
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Đường dẫn video</label>
+            <input type="text" class="form-control" id="nameChapter" name="name">
+          </div>
+
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Mã nhúng video</label>
+            <textarea class="form-control" name="description" rows="2" id="descriptionCourse" placeholder="Description ..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Thời lượng bài học</label>
+            <input type="time" step='1' name="time" min="00:00:00" max="10:00:00" class="form-control input-sm">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Hiển thị</label>
+            <input type="checkbox" name="status" data-toggle="toggle" data-onstyle="success" data-size="small">
+            <label for="recipient-name" class="col-form-label">Học thử</label>
+            <input type="checkbox" name="status" data-toggle="toggle" data-onstyle="success" data-size="small">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="submitFormLesson()">Lưu</button>
       </div>
     </div>
   </div>
