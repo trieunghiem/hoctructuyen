@@ -101,6 +101,37 @@ class CourseController extends Controller
 
 
 
+	public function postSaveLesson(Request $request)
+	{
+		$lesson = $request->only(['name', 'url_video', 'embed_video', 'time']);
+
+		if($request->hasFile('file_video') && LibImageVideoController::checkTypeExtensionFile($request->file('file_video')) == 'video'){
+
+			$videoPath = LibImageVideoController::saveVideo($request->file('file_video'), '');
+			$lesson['file_video'] = ($videoPath != 'false') ? $videoPath : '';
+		}
+
+		$lesson['status'] = (isset($request->status) && $request->status == 'on') ? 'OK' : 'NO';
+		$lesson['status_try'] = (isset($request->status_try) && $request->status_try == 'on') ? 'OK' : 'NO';
+
+		if(isset($request->id)){
+			
+			$l = LessonModel::find($request->id);
+			if (isset($lesson['file_video']) && $lesson['file_video'] != '') {
+				LibImageVideoController::deleteFile($l->file_video);
+			}
+
+			LessonModel::where('id', $request->id)->update($lesson);
+			$id = $request->id;
+		}else{
+			$lesson['chapter_id'] = $request->chapter_id;
+			$id = LessonModel::insertGetId($lesson);
+		}
+		return $id;
+	}
+
+
+
 	public function postGetListCourse(Request $request)
 	{
 		$itemsPerPage = isset($request->itemsPerPage) ? $request->itemsPerPage : 10;

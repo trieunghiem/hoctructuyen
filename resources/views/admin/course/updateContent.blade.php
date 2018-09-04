@@ -35,7 +35,6 @@
                       <input type="text" name="alias" class="form-control" id="aliasCourse" placeholder="Đường dẫn" value="{{$course->alias}}">
                     </div>
 
-
                     <div class="form-group">
                       <label for="descriptionCourse">Description</label>
                       <textarea class="form-control" name="description" rows="3" id="descriptionCourse" placeholder="Description ...">{{$course->description}}</textarea>
@@ -90,7 +89,6 @@
                       @endif
                     </div>
 
-
                     <div class="form-group">
                       <label for="priceCourse">Giá</label>
                       <input type="number" name="price" class="form-control" id="priceCourse" value="{{$course->price}}">
@@ -100,8 +98,6 @@
                       <label for="oldPriceCourse">Giá cũ (nếu có)</label>
                       <input type="number" name="old_price" class="form-control" id="oldPriceCourse" value="{{$course->old_price}}">
                     </div>
-
-
 
                     <div class="form-group">
                       <label>Giới thiệu khóa học</label>
@@ -254,40 +250,42 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Nội Dung Bài Học</h5>
-       <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
       </div>
       <div class="modal-body">
         <form method="post" name="" id="formLesson" enctype="multipart/form-data" action="{{route('postSaveLesson')}}">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Tên Bài Học</label>
-            <input type="text" class="form-control" id="nameChapter" name="name">
-            <input type="hidden" name="id" id="idChapter" value="">
+            <input type="text" class="form-control" id="nameLesson" name="name">
+            <input type="hidden" name="id" id="idLesson" value="">
+            <input type="hidden" name="chapter_id" id="idChap" value="">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">File video</label>
-            <input type="file" name="path_file_video" id="fileCourse">
+            <input type="file" name="file_video" id="fileVideoLesson">
           </div>
 
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Đường dẫn video</label>
-            <input type="text" class="form-control" id="nameChapter" name="name">
+            <input type="text" class="form-control" id="urlVideoLesson" name="url_video">
           </div>
 
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Mã nhúng video</label>
-            <textarea class="form-control" name="description" rows="2" id="descriptionCourse" placeholder="Description ..."></textarea>
+            <textarea class="form-control" name="embed_video" rows="2" id="embedVideoLesson" placeholder="mã nhúng..."></textarea>
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Thời lượng bài học</label>
-            <input type="time" step='1' name="time" min="00:00:00" max="10:00:00" class="form-control input-sm">
+            <input type="time" step='1' name="time" id="timeVideoLesson" format="[h]:mm:ss" min="00:00:00" max="09:00:00" class="form-control input-sm" pattern="[0][0-9]:[0-5][0-9]:[0-5][0-9]">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Hiển thị</label>
-            <input type="checkbox" name="status" data-toggle="toggle" data-onstyle="success" data-size="small">
+            <div id="statusShowVideo">
+              <input type="checkbox" name="status" data-toggle="toggle" data-onstyle="success" data-size="small">
+            </div>
             <label for="recipient-name" class="col-form-label">Học thử</label>
-            <input type="checkbox" name="status" data-toggle="toggle" data-onstyle="success" data-size="small">
+            <div id="statusTryLesson">
+              <input type="checkbox" name="status_try" data-toggle="toggle" data-onstyle="success" data-size="small">
+            </div>
           </div>
         </form>
       </div>

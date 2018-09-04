@@ -16,6 +16,7 @@ function submitFormLesson() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    $('#modalLesson').modal('hide');
 
     messageForm.ajaxForm({
       uploadProgress: libProgressBar,
@@ -69,6 +70,10 @@ function editChapter(id) {
 
 
 function showModalLesson(id) {
+  document.getElementById("formLesson").reset();
+  $('#idChap').val(id);
+  $("[data-toggle='toggle']").bootstrapToggle('destroy')                 
+  $("[data-toggle='toggle']").bootstrapToggle();
   $('#modalLesson').modal('show');
 }
 
