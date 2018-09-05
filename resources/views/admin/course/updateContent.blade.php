@@ -127,7 +127,7 @@
                       <label>
                         Hiển thị
                       </label>
-                      @if($course->status == 1)
+                      @if($course->status == 'OK')
                         <input type="checkbox" name="status" checked data-toggle="toggle" data-onstyle="success" data-size="small">
                       @else
                         <input type="checkbox" name="status" data-toggle="toggle" data-onstyle="success" data-size="small">

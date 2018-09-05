@@ -58,7 +58,7 @@ class CourseController extends Controller
 			$course['path_file_video'] = ($videoPath != 'false') ? $videoPath : '';
 		}
 
-		$course['status'] = (isset($request->status) && $request->status == 'on') ? 1 : 0;
+		$course['status'] = (isset($request->status) && $request->status == 'on') ? 'OK' : 'NO';
 
 		if (isset($request->price)) {
 			$course['price'] = (int)($request->price);

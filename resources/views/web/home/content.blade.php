@@ -19,13 +19,17 @@
 	                <li id="combo" role="presentation"><a href="#">Combo</a></li>
 	            </ul>
 	            <div class="tab-content">
+
+	            	
 	                <div class="tab-pane fade active in" role="tabpanel" id="tab1">
+						@foreach($highlight as $key => $value)
 	                    <div class="row">
+	                    	@foreach($value as $k => $val)
 	                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 item_course">
 	                            <div class="col">
 	                                <div class="images">
 	                                    <a title="" href="#">
-	                                        <img class="image" alt="" src="images/tu-huyet-ngon-tu_m.jpg">
+	                                        <img class="image" alt="" src="{{asset('storage')}}/{{$val['avatar']}}">
 	                                    </a>
 	                                    <div class="middle">
 	                                        <a title="" href="#"></a>
@@ -35,7 +39,7 @@
 	                                    </div>
 	                                </div>
 	                                <div class="title">
-	                                    <a title="" href="#"><b>Tử huyệt ngôn từ trong tình yêu</b></a>
+	                                    <a title="" href="#"><b>{{$val['name']}}</b></a>
 	                                </div>
 	                                <div class="star">
 	                                    <div class="number"><a href="#">Vera Hà Anh</a></div>
@@ -56,7 +60,8 @@
 	                                </div>
 	                            </div>
 	                        </div>
-	                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 item_course">
+	                        @endforeach
+	                        <!-- <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 item_course">
 	                            <div class="col">
 	                                <div class="images">
 	                                    <a title="" href="#">
@@ -160,9 +165,10 @@
 	                                    <span class="discount person">- 14%</span>
 	                                </div>
 	                            </div>
-	                        </div>
+	                        </div> -->
 	                    </div>
-	                    <div class="row">
+	                    @endforeach
+	                    <!-- <div class="row">
 	                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 item_course">
 	                            <div class="col">
 	                                <div class="images">
@@ -303,8 +309,10 @@
 	                                </div>
 	                            </div>
 	                        </div>
-	                    </div>
+	                    </div> -->
+
 	                </div>
+	                
 	                <div class="tab-pane fade" role="tabpane2" id="tab2">
 	                    <div class="row">
 	                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 item_course">
