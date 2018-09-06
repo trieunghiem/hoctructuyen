@@ -126,11 +126,9 @@
 
                     <div class="form-group">
                       <label>
-                        <input type="checkbox" class="minimal" name="status" value="1">
-                      </label>
-                      <label>
                         Hiển thị
                       </label>
+                        <input type="checkbox" name="status" data-toggle="toggle" data-onstyle="success" data-size="small">
                     </div>
         
                   </div>
