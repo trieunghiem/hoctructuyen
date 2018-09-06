@@ -14,6 +14,9 @@
 Route::get('/', 'Web\HomeController@home')->name('home');
 
 
+Route::get('course/{alias}', 'Web\CourseController@index');
+
+
 
 
 
