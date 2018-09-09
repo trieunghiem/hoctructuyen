@@ -29,20 +29,20 @@ function getListData(pag) {
                 // htm += "<td><img src='" + urlStorage + value.avatar + "' style='width: 120px;'></td>";
                 htm += "<td>";
                 if(value.show_home == null){
-                	htm += "<input type='checkbox' data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateShowHomeOfCourse(" + value.id + ")'> ";
+                	htm += "<input type='checkbox' data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateShowHomeOfCourse(" + value.id + ", $(this))'> ";
                 }else{
-                	htm += "<input type='checkbox' checked data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateShowHomeOfCourse(" + value.id + ")'> ";
+                	htm += "<input type='checkbox' checked data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateShowHomeOfCourse(" + value.id + ", $(this))'> ";
                 }
 
-                if (value.status == 1) {
-                	htm += " <input type='checkbox' checked data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateStatusOfCourse(" + value.id + ")'>";
+                if (value.status == 'OK') {
+                	htm += " <input type='checkbox' checked data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateStatusOfCourse(" + value.id + ", $(this))'>";
                 }else{
-                	htm += " <input type='checkbox' data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateStatusOfCourse(" + value.id + ")'>";
+                	htm += " <input type='checkbox' data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateStatusOfCourse(" + value.id + ", $(this))'>";
                 }
                 
                 htm += "</td>";
                 htm += "<td>";
-                htm += "<button type='button' class='btn btn-warning btn-sm' onclick='libRemoveRowLearn(" + value.id + ")'><i class='fa fa-eye'></i></button> ";
+                htm += "<button type='button' class='btn btn-warning btn-sm' onclick='viewCourse(" + value.id + ")'><i class='fa fa-eye'></i></button> ";
                 htm += " <button type='button' class='btn btn-danger btn-sm' onclick='libRemoveRowLearn(" + value.id + ")'><i class='fa fa-trash-o'></i></button>";
                 htm += "</td>";
                 htm += "</tr>";
@@ -63,8 +63,44 @@ function getListData(pag) {
 
 
 
-function updateShowHomeOfCourse(id) {
-	alert('trieu ' + id);
+function updateShowHomeOfCourse(id, val) {
+    if (val.is(':checked')) {
+        var check = 'OK';
+    } else {
+        var check = 'NO';
+    }
+	
+
+    $('#modalDeleteObject').modal('hide');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
+    $.ajax({
+
+        url : adminUrl + "/course/updateShowHomeOfCourse",
+
+        type : 'post',
+
+        cache : false,
+
+        data : {id: id, check: check},
+
+        success : function(data){
+            if (data == 'true') {
+                toastr.success('Cập nhật thành công!','Thông báo.' );
+            }
+        },
+
+        error: function() {
+            toastr.error('Xảy ra lỗi, vui lòng load lại trang!','Thông báo.' );
+        }
+    });
+
 }
 
 
@@ -72,7 +108,9 @@ function updateStatusOfCourse(id) {
 	alert('trieu ga ' + id);
 }
 
-
+function viewCourse(id) {
+    window.open(adminUrl + "/course/update/" + id,'_blank');
+}
 
 
 $(document).ready(function () {

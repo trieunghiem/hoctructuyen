@@ -153,7 +153,6 @@
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Nội Dung Khóa Học</h3>
-              <!-- <button type="button" class="btn btn-info buttonContent" onclick="showModalChapter()">Thêm Nội Dung</button> -->
               <button type="button" class="btn btn-success" onclick="showModalChapter()"><i class="fa fa-plus-square"> Thêm</i></button>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -173,7 +172,6 @@
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$value->id}}" class="" aria-expanded="true"><i class="fa fa-minus-square" aria-hidden="true"></i> {{$value->name}}</a>
                             </h4>
                             <div style="float: right;">
-                              <!-- <button type="button" class="btn btn-info buttonContent" onclick="moDalVideo()">Sửa</button> -->
                               <button type="button" class="btn btn-warning buttonContent" onclick="editChapter({{$value->id}})"><i class="fa fa-eye"></i> Sửa</button>
                               <button type="button" class="btn btn-info buttonContent" onclick="showModalLesson({{$value->id}})"><i class="fa fa-plus-square"> Thêm</i></button>
                               <button type="button" class="btn btn-danger buttonContent" onclick="showModalDeleteChapter({{$value->id}})"><i class="fa fa-trash-o"></i> Xóa</button>
@@ -190,8 +188,8 @@
                               <td class="col-sm-8">{{$val->name}}</td>
                               <td>{{$val->time}}</td>
                               <td>
-                                <button type="button" class="btn btn-warning btn-sm" onclick="viewLesson({{$val->id}})"><i class="fa fa-eye"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteLesson({{$val->id}})"><i class="fa fa-trash-o"></i></button>
+                                <button type="button" class="btn btn-warning btn-sm" onclick="editLesson({{$val->id}})"><i class="fa fa-eye"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="showModalDeleteLesson({{$val->id}})"><i class="fa fa-trash-o"></i></button>
                               </td>
                             </tr>
                             @endforeach

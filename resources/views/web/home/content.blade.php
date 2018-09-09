@@ -41,8 +41,10 @@
 	                                </div>
 	                                <div class="price">
 	                                    <span class="sell-price">{{number_format($val['price'])}}<sup>đ</sup></span>
+	                                    @if($val['old_price'] != 0 && $val['old_price'] != null)
 	                                    <span class="old-price">{{number_format($val['old_price'])}}<sup>đ</sup></span>
 	                                    {!!\App\Lib\LibSupportViewController::viewPercentPrice($val['price'], $val['old_price'])!!}
+	                                    @endif
 	                                </div>
 	                            </div>
 	                        </div>
@@ -74,8 +76,10 @@
 	                                </div>
 	                                <div class="price">
 	                                    <span class="sell-price">{{number_format($val['price'])}}<sup>đ</sup></span>
+	                                    @if($val['old_price'] != 0 && $val['old_price'] != null)
 	                                    <span class="old-price">{{number_format($val['old_price'])}}<sup>đ</sup></span>
 	                                    {!!\App\Lib\LibSupportViewController::viewPercentPrice($val['price'], $val['old_price'])!!}
+	                                    @endif
 	                                </div>
 	                            </div>
 	                        </div>
@@ -106,8 +110,10 @@
 	                                </div>
 	                                <div class="price">
 	                                    <span class="sell-price">{{number_format($val['price'])}}<sup>đ</sup></span>
+	                                    @if($val['old_price'] != 0 && $val['old_price'] != null)
 	                                    <span class="old-price">{{number_format($val['old_price'])}}<sup>đ</sup></span>
 	                                    {!!\App\Lib\LibSupportViewController::viewPercentPrice($val['price'], $val['old_price'])!!}
+	                                    @endif
 	                                </div>
 	                            </div>
 	                        </div>

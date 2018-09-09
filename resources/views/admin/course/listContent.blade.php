@@ -46,7 +46,6 @@
                         <option value="100">100 bản ghi</option>
                       </select> trên trang
                     </label>
-                    <input type="time" name="usr_time" class="form-control input-sm">
                   </div>
                 </div>
 

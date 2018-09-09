@@ -1,12 +1,5 @@
 
 
-// $(function () {
-//    $('#ddtime').datetimepicker({
-//       format: 'hh:mm:ss'
-//    });
-// });
-
-
 
 function submitFormLesson() {
     var messageForm = $('#formLesson');
@@ -72,6 +65,7 @@ function editChapter(id) {
 function showModalLesson(id) {
   document.getElementById("formLesson").reset();
   $('#idChap').val(id);
+  $('#idLesson').val(null);
   $("[data-toggle='toggle']").bootstrapToggle('destroy')                 
   $("[data-toggle='toggle']").bootstrapToggle();
   $('#modalLesson').modal('show');
@@ -80,9 +74,105 @@ function showModalLesson(id) {
 
 
 
+function editLesson(id) {
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  $.ajax({
+
+      url : adminUrl + "/course/getLesson",
+
+      type : 'post',
+
+      cache : false,
+
+      data : {id: id},
+
+      success : function(data){
+        var d = JSON.parse(data);
+        document.getElementById("formLesson").reset();
+        $('#nameLesson').val(d.name);
+        $('#idLesson').val(d.id);
+        $('#urlVideoLesson').val(d.url_video);
+        $('#embedVideoLesson').val(d.embed_video);
+        $('#timeVideoLesson').val(d.time);
+
+        if (d.status == 'OK') {
+          $('#statusShowVideo').html('<input type="checkbox" checked name="status" data-toggle="toggle" data-onstyle="success" data-size="small">');
+        } else {
+          $('#statusShowVideo').html('<input type="checkbox" name="status" data-toggle="toggle" data-onstyle="success" data-size="small">');
+        }
+
+        if (d.status_try == 'OK') {
+          $('#statusTryLesson').html('<input type="checkbox" checked name="status_try" data-toggle="toggle" data-onstyle="success" data-size="small">');
+        } else {
+          $('#statusTryLesson').html('<input type="checkbox" name="status_try" data-toggle="toggle" data-onstyle="success" data-size="small">');
+        }
+
+        $("[data-toggle='toggle']").bootstrapToggle('destroy')                 
+        $("[data-toggle='toggle']").bootstrapToggle();
+
+        $('#modalLesson').modal('show');
+      },
+
+      error: function() {
+        toastr.error('Xảy ra lỗi, vui lòng load lại trang!','Thông báo.' );
+      }
+  });
+}
 
 
 
+
+
+function showModalDeleteLesson(id = 0) {
+  var contentMessageDelete = '<p>Bạn xác nhận muốn xóa bài học này?</p>';
+  var functionNameCallBackDelete = 'deleteLesson';
+  $("#contentMessageDelete").html(contentMessageDelete);
+  $("#functionNameCallBackDelete").val(functionNameCallBackDelete);
+  $("#idObjectDelete").val(id);
+  $('#modalDeleteObject').modal('show');
+}
+
+
+
+function deleteLesson() {
+
+  $('#modalDeleteObject').modal('hide');
+
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+
+  $.ajax({
+
+    url : adminUrl + "/course/deleteLesson",
+
+    type : 'post',
+
+    cache : false,
+
+    data : {id: $("#idObjectDelete").val()},
+
+    success : function(data){
+      if (data == 'true') {
+        toastr.success('Xóa thành công!','Thông báo.' );
+      }
+    },
+
+    error: function() {
+      toastr.error('Xảy ra lỗi, vui lòng load lại trang!','Thông báo.' );
+    }
+  });
+
+
+}
 
 
 

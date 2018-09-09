@@ -12,11 +12,13 @@ use App\Lib\LibImageVideoController;
 use App\Models\CourseModel;
 use App\Models\ChapterModel;
 use App\Models\LessonModel;
+use Crypt;
 
 class CourseController extends Controller
 {
 	public function getListCourse(Request $request)
 	{
+		echo bcrypt('23456');die();
 		return view('admin.course.listContent');
 	}
 
@@ -187,13 +189,58 @@ class CourseController extends Controller
 	}
 
 
+	public function postGetLesson(Request $request)
+	{
+		return json_encode(LessonModel::find($request->id));
+	}
+
+
 	public function postDeleteChapter(Request $request)
 	{
 		$chap = ChapterModel::find($request->id);
 		if ($chap->delete()) {
-			LessonModel::where('chapter_id', $request->id)->delete();
+			$lesson = LessonModel::where('chapter_id', $request->id)->get();
+
+			foreach ($lesson as $key => $value) {
+				LibImageVideoController::deleteFile($value->file_video);
+				$value->delete();
+			}
+
 			return 'true';
 		}
+	}
+
+
+
+
+	public function postDeleteLesson(Request $request)
+	{
+		$lesson = LessonModel::find($request->id);
+		LibImageVideoController::deleteFile($lesson->file_video);
+		if ($lesson->delete()) {
+			return 'true';
+		} else {
+			return 'false';
+		}
+	}
+
+
+
+
+	public function updateShowHomeOfCourse(Request $request)
+	{
+		$course = CourseModel::find($request->id);
+
+		if ($request->check == 'OK') {
+			$course->show_home = date('Y-m-d H:i:s');
+		} else {
+			$course->show_home = null;
+		}
+
+		if ($course->save()) {
+			return 'true';
+		}
+		
 	}
 
 

@@ -47,7 +47,7 @@ class LibImageVideoController extends Controller
 
     public static function deleteFile($path)
     {
-        if(Storage::exists('public/' . $path)){
+        if(Storage::exists('public/' . $path) && $path != null && $path != ''){
             Storage::delete('public/' . $path);
         }
 

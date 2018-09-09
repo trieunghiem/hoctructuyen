@@ -2,24 +2,17 @@
 
 
   <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="active treeview">
-          <a href="#">
+          <a href="{{route('dashBoard')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="">
             <i class="fa fa-files-o"></i>
             <span>Layout Options</span>
             <span class="pull-right-container">
@@ -59,18 +52,17 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
+            <span>Khóa Học</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+            <li><a href="{{route('getListCourse')}}"><i class="fa fa-list"></i> Danh Sách Khóa Học</a></li>
+            <li><a href="{{route('getInsertCourse')}}"><i class="fa fa-plus-square"></i> Thêm Khóa Học</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Danh Sách Combo Khóa Học</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Thêm Combo Khóa Học</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Danh Mục Khóa Học</a></li>
           </ul>
         </li>
         <li class="treeview">
