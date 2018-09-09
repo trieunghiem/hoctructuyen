@@ -60,9 +60,9 @@
           <ul class="treeview-menu">
             <li><a href="{{route('getListCourse')}}"><i class="fa fa-list"></i> Danh Sách Khóa Học</a></li>
             <li><a href="{{route('getInsertCourse')}}"><i class="fa fa-plus-square"></i> Thêm Khóa Học</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Danh Sách Combo Khóa Học</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Thêm Combo Khóa Học</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Danh Mục Khóa Học</a></li>
+            <li><a href=""><i class="fa fa-cubes"></i> Danh Sách Combo Khóa Học</a></li>
+            <li><a href=""><i class="fa fa-plus-circle"></i> Thêm Combo Khóa Học</a></li>
+            <li><a href="{{route('getCategory')}}"><i class="fa fa-folder-open"></i> Danh Mục Khóa Học</a></li>
           </ul>
         </li>
         <li class="treeview">

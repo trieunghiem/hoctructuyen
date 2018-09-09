@@ -274,4 +274,11 @@ class CourseController extends Controller
 	}
 
 
+
+	public function getCategory(Request $request)
+	{
+		return view('admin.course.categoryOfCourse');
+	}
+
+
 }
