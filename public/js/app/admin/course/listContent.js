@@ -39,6 +39,12 @@ function getListData(pag) {
                 }else{
                 	htm += " <input type='checkbox' data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updateStatusOfCourse(" + value.id + ", $(this))'>";
                 }
+
+                if (value.promotion == null) {
+                    htm += " <input type='checkbox' data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updatePromotionOfCourse(" + value.id + ", $(this))'>";
+                }else{
+                    htm += " <input type='checkbox' checked data-toggle='toggle' data-onstyle='success' data-size='small' onchange='updatePromotionOfCourse(" + value.id + ", $(this))'>";
+                }
                 
                 htm += "</td>";
                 htm += "<td>";
@@ -61,6 +67,43 @@ function getListData(pag) {
 }
 
 
+
+
+function updatePromotionOfCourse(id, val) {
+    if (val.is(':checked')) {
+        var check = 'OK';
+    } else {
+        var check = 'NO';
+    }
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
+    $.ajax({
+
+        url : adminUrl + "/course/updatePromotionOfCourse",
+
+        type : 'post',
+
+        cache : false,
+
+        data : {id: id, check: check},
+
+        success : function(data){
+            if (data == 'true') {
+                toastr.success('Cập nhật thành công!','Thông báo.' );
+            }
+        },
+
+        error: function() {
+            toastr.error('Xảy ra lỗi, vui lòng load lại trang!','Thông báo.' );
+        }
+    });
+}
 
 
 function updateShowHomeOfCourse(id, val) {

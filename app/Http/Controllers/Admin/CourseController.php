@@ -144,7 +144,7 @@ class CourseController extends Controller
             return $currentPage;
         });
 
-        $paginate = CourseModel::select('id', 'name', 'alias', 'avatar', 'status', 'show_home')->orderBy('id', 'DESC')->paginate($itemsPerPage)->toArray();
+        $paginate = CourseModel::select('id', 'name', 'alias', 'avatar', 'status', 'show_home', 'promotion')->orderBy('id', 'DESC')->paginate($itemsPerPage)->toArray();
 
 
         $totalItems = $paginate['total'];
@@ -258,6 +258,20 @@ class CourseController extends Controller
 	}
 
 
+	public function updatePromotionOfCourse(Request $request)
+	{
+		$course = CourseModel::find($request->id);
+
+		if ($request->check == 'OK') {
+			$course->promotion = date('Y-m-d H:i:s');
+		} else {
+			$course->promotion = null;
+		}
+
+		if ($course->save()) {
+			return 'true';
+		}
+	}
 
 
 }

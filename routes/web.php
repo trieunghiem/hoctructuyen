@@ -52,8 +52,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_login']], function ()
 		Route::post('saveLesson', 'Admin\CourseController@postSaveLesson')->name('postSaveLesson');
 
 		Route::post('updateShowHomeOfCourse', 'Admin\CourseController@updateShowHomeOfCourse')->name('updateShowHomeOfCourse');
-		
+
 		Route::post('updateStatusOfCourse', 'Admin\CourseController@updateStatusOfCourse')->name('updateStatusOfCourse');
+		
+		Route::post('updatePromotionOfCourse', 'Admin\CourseController@updatePromotionOfCourse')->name('updatePromotionOfCourse');
 	});
 
 

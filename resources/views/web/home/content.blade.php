@@ -26,18 +26,18 @@
 	                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 item_course">
 	                            <div class="col">
 	                                <div class="images">
-	                                    <a title="" href="#">
+	                                    <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}">
 	                                        <img class="image" alt="" src="{{asset('storage')}}/{{$val['avatar']}}">
 	                                    </a>
 	                                    <div class="middle">
-	                                        <a title="" href="#"></a>
+	                                        <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}"></a>
 	                                        <center>
-	                                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
+	                                            <a href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}" class="btn btn-primary">Xem chi tiết</a>
 	                                        </center>
 	                                    </div>
 	                                </div>
 	                                <div class="title">
-	                                    <a title="" href="#"><b>{{$val['name']}}</b></a>
+	                                    <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}"><b>{{$val['name']}}</b></a>
 	                                </div>
 	                                <div class="price">
 	                                    <span class="sell-price">{{number_format($val['price'])}}<sup>đ</sup></span>
@@ -61,18 +61,18 @@
 	                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 item_course">
 	                            <div class="col">
 	                                <div class="images">
-	                                    <a title="" href="#">
+	                                    <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}">
 	                                        <img class="image" alt="" src="{{asset('storage')}}/{{$val['avatar']}}">
 	                                    </a>
 	                                    <div class="middle">
-	                                        <a title="" href="#"></a>
+	                                        <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}"></a>
 	                                        <center>
-	                                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
+	                                            <a href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}" class="btn btn-primary">Xem chi tiết</a>
 	                                        </center>
 	                                    </div>
 	                                </div>
 	                                <div class="title">
-	                                    <a title="" href="#"><b>{{$val['name']}}</b></a>
+	                                    <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}"><b>{{$val['name']}}</b></a>
 	                                </div>
 	                                <div class="price">
 	                                    <span class="sell-price">{{number_format($val['price'])}}<sup>đ</sup></span>
@@ -95,18 +95,18 @@
 	                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 item_course">
 	                            <div class="col">
 	                                <div class="images">
-	                                    <a title="" href="#">
+	                                    <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}">
 	                                        <img class="image" alt="" src="{{asset('storage')}}/{{$val['avatar']}}">
 	                                    </a>
 	                                    <div class="middle">
-	                                        <a title="" href="#"></a>
+	                                        <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}"></a>
 	                                        <center>
-	                                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
+	                                            <a href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}" class="btn btn-primary">Xem chi tiết</a>
 	                                        </center>
 	                                    </div>
 	                                </div>
 	                                <div class="title">
-	                                    <a title="" href="#"><b>{{$val['name']}}</b></a>
+	                                    <a title="" href="{{url('course')}}/{{$val['alias']}}-{{$val['id']}}"><b>{{$val['name']}}</b></a>
 	                                </div>
 	                                <div class="price">
 	                                    <span class="sell-price">{{number_format($val['price'])}}<sup>đ</sup></span>
