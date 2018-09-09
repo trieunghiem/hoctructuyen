@@ -69,9 +69,6 @@ function updateShowHomeOfCourse(id, val) {
     } else {
         var check = 'NO';
     }
-	
-
-    $('#modalDeleteObject').modal('hide');
 
     $.ajaxSetup({
         headers: {
@@ -104,9 +101,48 @@ function updateShowHomeOfCourse(id, val) {
 }
 
 
-function updateStatusOfCourse(id) {
-	alert('trieu ga ' + id);
+
+
+function updateStatusOfCourse(id , val) {
+    if (val.is(':checked')) {
+        var check = 'OK';
+    } else {
+        var check = 'NO';
+    }
+    
+
+    $('#modalDeleteObject').modal('hide');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
+    $.ajax({
+
+        url : adminUrl + "/course/updateStatusOfCourse",
+
+        type : 'post',
+
+        cache : false,
+
+        data : {id: id, check: check},
+
+        success : function(data){
+            if (data == 'true') {
+                toastr.success('Cập nhật thành công!','Thông báo.' );
+            }
+        },
+
+        error: function() {
+            toastr.error('Xảy ra lỗi, vui lòng load lại trang!','Thông báo.' );
+        }
+    });
 }
+
+
 
 function viewCourse(id) {
     window.open(adminUrl + "/course/update/" + id,'_blank');

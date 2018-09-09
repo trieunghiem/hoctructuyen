@@ -242,6 +242,22 @@ class CourseController extends Controller
 	}
 
 
+	public function updateStatusOfCourse(Request $request)
+	{
+		$course = CourseModel::find($request->id);
+
+		if ($request->check == 'OK') {
+			$course->status = 'OK';
+		} else {
+			$course->status = null;
+		}
+
+		if ($course->save()) {
+			return 'true';
+		}
+	}
+
+
 
 
 }
