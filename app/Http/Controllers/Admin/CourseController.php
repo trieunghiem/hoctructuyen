@@ -12,13 +12,11 @@ use App\Lib\LibImageVideoController;
 use App\Models\CourseModel;
 use App\Models\ChapterModel;
 use App\Models\LessonModel;
-use Crypt;
 
 class CourseController extends Controller
 {
 	public function getListCourse(Request $request)
 	{
-		echo bcrypt('23456');die();
 		return view('admin.course.listContent');
 	}
 
