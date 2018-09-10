@@ -167,7 +167,7 @@ class CourseController extends Controller
 		if(isset($request->id)){
 			$chapter = ChapterModel::find($request->id);
 			$chapter->name = $request->name;
-		}else{
+		} else {
 			$chapter = new ChapterModel();
 			$chapter->name = $request->name;
 			$chapter->course_id = $request->course_id;
@@ -278,6 +278,26 @@ class CourseController extends Controller
 	public function getCategory(Request $request)
 	{
 		return view('admin.course.categoryOfCourse');
+	}
+
+
+
+
+	public function saveCategory(Request $request)
+	{
+		return 1;
+	}
+
+
+	public function getInfoCategory(Request $request)
+	{
+		$cateCourse = \Config::get('cateCourse');
+
+		// return max(array_keys($cateCourse));
+
+		$category = $cateCourse[$request->id];
+
+		return json_encode($category);
 	}
 
 

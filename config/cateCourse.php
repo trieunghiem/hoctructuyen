@@ -7,8 +7,9 @@ return array(
             'slug' => 'cong-nghe-thong-tin',
             'tittle' => 'Khóa học Công Nghệ Thông Tin - Unica',
             'description' => 'Danh sách bài học công nghệ thông tin chất lượng ...',
-            'og_image' => '',
+            'og_image' => '1',
             'status' => 1,
+            'show_home' => 1,
             'id' => 1,
         ),
 
@@ -20,6 +21,7 @@ return array(
             'description' => 'Học Thiết kế, Nhiếp ảnh ...',
             'og_image' => '',
             'status' => 1,
+            'show_home' => 'OK',
             'id' => 2,
         ),
 
@@ -31,6 +33,7 @@ return array(
             'description' => 'Khóa học Sale & Marketing ...',
             'og_image' => '',
             'status' => 1,
+            'show_home' => 1,
             'id' => 3,
         ),
 
@@ -42,6 +45,7 @@ return array(
             'description' => 'Khóa học Kinh doanh & Khởi nghiệp ...',
             'og_image' => '',
             'status' => 1,
+            'show_home' => 1,
             'id' => 4,
         ),
 
@@ -53,6 +57,7 @@ return array(
             'description' => 'Khóa học Phát triển cá nhân ...',
             'og_image' => '',
             'status' => 1,
+            'show_home' => 1,
             'id' => 5,
         ),
 
@@ -64,6 +69,7 @@ return array(
             'description' => 'Khóa học Sức khỏe - Giới tính ...',
             'og_image' => '',
             'status' => 1,
+            'show_home' => 1,
             'id' => 6,
         ),
 
@@ -75,6 +81,7 @@ return array(
             'description' => 'Danh sách Khóa học Nghệ thuật - Làm đẹp ...',
             'og_image' => '',
             'status' => 1,
+            'show_home' => 1,
             'id' => 7,
         ),
 
@@ -86,6 +93,7 @@ return array(
             'description' => 'Khóa học Tiếng Anh, Tiếng Nhật, Tiếng Hàn, Tiếng Trung Giao Tiếp ...',
             'og_image' => '',
             'status' => 1,
+            'show_home' => 1,
             'id' => 8,
         ),
 
@@ -97,6 +105,7 @@ return array(
             'description' => 'Khóa học Nuôi dạy con...',
             'og_image' => '',
             'status' => 1,
+            'show_home' => 1,
             'id' => 9,
         ),
 );

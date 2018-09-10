@@ -58,6 +58,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_login']], function ()
 		Route::post('updatePromotionOfCourse', 'Admin\CourseController@updatePromotionOfCourse')->name('updatePromotionOfCourse');
 
 		Route::get('category', 'Admin\CourseController@getCategory')->name('getCategory');
+
+		Route::post('saveCategory', 'Admin\CourseController@saveCategory')->name('saveCategory');
+
+		Route::post('getInfoCategory', 'Admin\CourseController@getInfoCategory')->name('getInfoCategory');
 	});
 
 
