@@ -286,15 +286,53 @@ class CourseController extends Controller
 
 	public function saveCategory(Request $request)
 	{
-		return 1;
+		$cateCourse = \Config::get('cateCourse');
+
+		$cate = $request->only(['name', 'slug', 'tittle', 'description']);
+
+		if($request->hasFile('og_image') && LibImageVideoController::checkTypeExtensionFile($request->file('og_image')) == 'image'){
+
+			$imgPath = LibImageVideoController::saveAvatarCourse($request->file('og_image'), '');
+			$cate['og_image'] = ($imgPath != 'false') ? $imgPath : '';
+		}
+
+		$cate['status'] = (isset($request->status) && $request->status == 'on') ? 'OK' : 'NO';
+		$cate['show_home'] = (isset($request->statusHome) && $request->statusHome == 'on') ? 'OK' : 'NO';
+
+		if (isset($request->id) && $request->id != null && $request->id != '') {
+			$cate['id'] = (int)($request->id);
+
+			if (isset($cateCourse[(int)$request->id]['og_image']) && $cateCourse[(int)$request->id]['og_image'] != null && $cateCourse[(int)$request->id]['og_image'] != '') {
+				if($request->hasFile('og_image') && LibImageVideoController::checkTypeExtensionFile($request->file('og_image')) == 'image'){
+					LibImageVideoController::deleteFile($cateCourse[(int)$request->id]['og_image']);
+				} else {
+					$cate['og_image'] = $cateCourse[(int)$request->id]['og_image'];
+				}
+			}
+		} else {
+			$cate['id'] = max(array_keys($cateCourse)) + 1;
+		}
+
+		if (!isset($cate['og_image'])) {
+			$cate['og_image'] = '';
+		}
+
+		$cateCourse[$cate['id']] = $cate;
+
+		$category = var_export($cateCourse, 1);
+
+        if (file_put_contents(config_path() . '\cateCourse.php', "<?php\n return  $category ;")) {
+        	return 'success';
+        } else {
+        	return 'error';
+        }
+
 	}
 
 
 	public function getInfoCategory(Request $request)
 	{
 		$cateCourse = \Config::get('cateCourse');
-
-		// return max(array_keys($cateCourse));
 
 		$category = $cateCourse[$request->id];
 

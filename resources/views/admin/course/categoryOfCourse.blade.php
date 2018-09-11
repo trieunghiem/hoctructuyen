@@ -17,6 +17,7 @@
 
             <div class="box-header">
               <h3 class="box-title">Danh Mục Khóa Học</h3>
+              <button type="button" class="btn btn-success" onclick="showModalCategory()"><i class="fa fa-plus-square"> Thêm</i></button>
             </div>
             <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
               <div class="row">
@@ -64,11 +65,11 @@
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Đường Dẫn</label>
-            <input type="text" class="form-control" id="slugCategory" name="alias">
+            <input type="text" class="form-control" id="slugCategory" name="slug">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Title</label>
-            <input type="text" class="form-control" id="titleCategory" name="title">
+            <input type="text" class="form-control" id="titleCategory" name="tittle">
           </div>
 
           <div class="form-group">

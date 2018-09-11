@@ -58,10 +58,19 @@ function getCategory(id) {
 }
 
 
+function showModalCategory() {
+    document.getElementById("formCategory").reset();
+    $('#idCategory').val('');
+    $("#anh_chinh").attr('src', '');
+    $('#modalCategory').modal('show');
+}
+
+
 
 
 function submitFormCategory() {
-        var messageForm = $('#formCategory');
+    $('#modalCategory').modal('hide');
+    var messageForm = $('#formCategory');
 
     $.ajaxSetup({
         headers: {
@@ -72,10 +81,9 @@ function submitFormCategory() {
     messageForm.ajaxForm({
         uploadProgress: libProgressBar,
         success:function(data){
-            $('#idChapter').val(data);
-            toastr.success('Lưu thành công!','Thông báo.' );
             $('#modalProgress').modal('hide');
-            $('#modalChapter').modal('hide');
+            toastr.success('Lưu thành công!','Thông báo.' );
+            
         },
 
         error:function(e){
