@@ -19,6 +19,7 @@ Route::get('course/{alias}', 'Web\CourseController@index');
 
 
 
+Route::get('user/Login', 'Web\UserController@login')->name('loginUser');
 
 
 Route::get('admin/Login', 'Admin\AdminController@getLogin')->name('getLogin');
