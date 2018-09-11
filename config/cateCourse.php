@@ -2,14 +2,14 @@
  return  array (
   1 => 
   array (
-    'name' => 'Công nghệ thông tinnnnn',
+    'name' => 'Công nghệ thông tin',
     'slug' => 'cong-nghe-thong-tin',
     'tittle' => 'Khóa học Công Nghệ Thông Tin - Unica',
     'description' => 'Danh sách bài học công nghệ thông tin chất lượng ...',
-    'og_image' => 'image/ca-khuc1536679993.jpg',
     'status' => 'OK',
-    'show_home' => 'OK',
+    'show_home' => 'NO',
     'id' => 1,
+    'og_image' => 'image/170513_tn1_copy-300x1941536687464.jpg',
   ),
   2 => 
   array (
@@ -18,7 +18,7 @@
     'tittle' => 'Học Thiết kế, Nhiếp ảnh',
     'description' => 'Học Thiết kế, Nhiếp ảnh ...',
     'status' => 'OK',
-    'show_home' => 'OK',
+    'show_home' => 'NO',
     'id' => 2,
     'og_image' => '',
   ),
@@ -29,7 +29,7 @@
     'tittle' => 'Khóa học Sale & Marketing',
     'description' => 'Khóa học Sale & Marketing ...',
     'status' => 'OK',
-    'show_home' => 'OK',
+    'show_home' => 'NO',
     'id' => 3,
     'og_image' => '',
   ),
