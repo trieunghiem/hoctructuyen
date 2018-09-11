@@ -11,4 +11,9 @@ class UserController extends Controller
 	{
 		return view('web.user.login');
 	}
+
+	public function register(Request $request)
+	{
+		return view('web.user.register');
+	}
 }
