@@ -35,7 +35,7 @@ class AdminController extends Controller
 		}
 	}
 
-// trieu
+// trieu ga
 
 	public function dashBoard()
 	{
